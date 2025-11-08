@@ -1,11 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 //Getter/Setter
 export default function App() {
   const [input, setInput] = useState('')
   const [tarefas, setTarefas] = useState([
-    
+    'teste'
   ]);
+
+  useEffect(() => {
+    const tarefasStorage = localStorage.getItem('@tarefas');
+
+    if(tarefasStorage){
+      setTarefas(JSON.parse(tarefasStorage))
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('@tarefas', JSON.stringify(tarefas))
+  }, [tarefas])
 
   function handleRegister(e){
     e.preventDefault();
