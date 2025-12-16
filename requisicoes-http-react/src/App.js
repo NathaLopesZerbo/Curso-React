@@ -22,9 +22,7 @@ useEffect(() => {
   async function loadingApi() {
     const url = 'https://sujeitoprogramador.com/rn-api/?api=posts'
     const response = await fetch(url)
-    console.log('response', response);
     const data = await response.json()
-    console.log('data', data)
     setNutri(data);
   }
   loadingApi()
@@ -47,7 +45,7 @@ useEffect(() => {
             </article>
           )
         })}
-     
+
    </div>
  );
 }
